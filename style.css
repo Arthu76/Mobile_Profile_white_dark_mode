@@ -82,14 +82,17 @@ body * {
 
   position: absolute;
   top: 50%;
-  left: 0;
+  animation: slide-off 0.4s;
   z-index: 0;
   transform: translateY(-50%);
 }
 
 .light #swith button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.4s forwards;
+}
+
+#swith button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #swith span {
@@ -168,4 +171,33 @@ footer {
   padding: 24px 0;
   text-align: center;
   font-size: 14px;
+}
+
+@media (min-width: 700px)  {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg)
+  }
+
+
+  .light {
+    --bg-url: url(./assets/bg-desktop-light.jpg)
+  }
+}
+
+/*Animation*/
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+@keyframes slide-off {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
 }
